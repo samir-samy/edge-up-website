@@ -1,0 +1,229 @@
+:root {
+    --primary-blue: #0d2c54;
+    --accent-teal: #1abc9c;
+    --bright-blue: #0061ff;
+    --light-gray: #f8f9fa;
+    --text-dark: #2c3e50;
+    --overlay-dark: rgba(13, 44, 84, 0.85); 
+}
+
+/* 1. التنسيقات الأساسية */
+body {
+    font-family: 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 2. الـ Navbar */
+.navbar { 
+    background-color: var(--primary-blue) !important;
+    padding: 15px 0;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+}
+
+.nav-link:hover {
+    color: var(--accent-teal) !important;
+}
+
+/* 3. الـ Hero Section */
+.hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('../assets/images/performance.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    padding: 100px 0;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, var(--overlay-dark), rgba(13, 44, 84, 0.6));
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* --- 9. Who We Are Section --- */
+
+#about-summary {
+    background-color: var(--light-gray);
+    position: relative;
+    border-bottom: 2px solid rgba(13, 44, 84, 0.05);
+}
+
+/* تنسيق العنوان الرئيسي في القسم */
+#about-summary h2 {
+    color: var(--primary-blue);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+
+#about-summary h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: var(--accent-teal);
+    border-radius: 2px;
+}
+
+/* تنسيق النص التعريفي */
+#about-summary .lead {
+    color: var(--text-dark);
+    font-weight: 400;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* برواز المقولة المميزة (The Highlight Box) */
+#who-we-are-content .bg-white.shadow-sm {
+    background: #ffffff;
+    border-left: 5px solid var(--accent-teal) !important; /* استخدام لون التيل كعلامة تميز */
+    border-radius: 0 15px 15px 0;
+    transition: all 0.3s ease;
+}
+
+#who-we-are-content .bg-white.shadow-sm:hover {
+    box-shadow: 0 8px 25px rgba(13, 44, 84, 0.1) !important;
+    transform: translateX(5px);
+}
+
+/* تنسيق أيقونة الاقتباس */
+#who-we-are-content i.bi-quote {
+    color: var(--accent-teal);
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+#who-we-are-content .text-secondary {
+    color: #546e7a !important; /* لون رمادي مزرق هادئ للمقولة */
+    font-size: 1.15rem;
+}
+.floating-badge {
+    width: 90px;
+    height: 90px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 3px solid var(--accent-teal);
+    animation: floatVertical 3s ease-in-out infinite;
+}
+
+@keyframes floatVertical {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* 4. الكروت (Programs & CBT) */
+.card {
+    border: none !important;
+    border-radius: 20px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #fff;
+}
+
+.card:hover { 
+    transform: translateY(-12px); 
+    box-shadow: 0 15px 35px rgba(13, 44, 84, 0.15) !important;
+}
+
+.transition-hover {
+    border-top: 5px solid var(--accent-teal) !important;
+}
+
+/* 5. الأزرار */
+.btn-info {
+    background-color: var(--accent-teal) !important;
+    border: none;
+    color: white !important;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-info:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(26, 188, 156, 0.3);
+}
+
+/* 6. الفوتر */
+footer {
+    background-color: #081a33 !important;
+    padding: 60px 0 20px;
+}
+
+/* 8. تنسيق روابط التواصل (Footer Contact) */
+#contact-info a {
+    color: var(--accent-teal) !important;
+    text-decoration: none; /* إخفاء الخط السفلي الافتراضي */
+    font-weight: 500;
+    display: inline-block; /* للسماح بحركات التحويل transform */
+    transition: all 0.3s ease; /* تنعيم الحركة */
+}
+
+/* تأثير الـ Hover */
+#contact-info a:hover {
+    color: white !important; /* تغيير اللون للأبيض عند الوقوف عليه */
+    transform: translateX(8px); /* إزاحة بسيطة لليمين لتعطي إحساساً بالتفاعل */
+    opacity: 0.9;
+}
+
+/* إضافة أيقونات بوستراب داخل الروابط لتتحرك أيضاً */
+#contact-info a i {
+    transition: transform 0.3s ease;
+}
+
+#contact-info a:hover i {
+    transform: scale(1.2); /* تكبير الأيقونة (مثل أيقونة الواتساب) عند الـ Hover */
+}
+
+/* --- 7. قسم الصناعات (التعديل المطلوب لعودة الـ Hover) --- */
+#industries-container .bg-light {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
+}
+
+/* استهداف الحاوية عند مرور الماوس */
+#industries-container .col-md-4:hover .bg-light {
+    background-color: var(--primary-blue) !important;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 20px rgba(13, 44, 84, 0.2);
+    border-color: var(--accent-teal);
+}
+
+/* تغيير لون الأيقونة عند مرور الماوس */
+#industries-container .col-md-4:hover i {
+    color: white !important;
+    transform: rotate(10deg);
+}
+
+/* تحسين شكل النص تحت الأيقونة */
+#industries-container p {
+    transition: color 0.3s;
+}
+
+#industries-container .col-md-4:hover p {
+    color: var(--primary-blue) !important;
+    font-weight: bold;
+}
