@@ -107,26 +107,38 @@ async function loadProjectData() {
             `).join('');
         }
 
-        // 5. عرض البرامج التدريبية
-        const programsContainer = document.getElementById('programs-container');
+ const programsContainer = document.getElementById('programs-container');
         if (programsContainer && data.training_modules) {
+            const defaultImages = [
+                'assets/images/sales.jpg', 'assets/images/communication.jpg', 
+                'assets/images/leadership.jpg', 'assets/images/problem.jpg',
+                'assets/images/social.jpg', 'assets/images/time.jpg', 
+                'assets/images/emotional.jpg', 'assets/images/cbt.jpg', 
+                'assets/images/behavioral.jpg', 'assets/images/skills.jpg'
+            ];
+
             programsContainer.innerHTML = data.training_modules.map((mod, index) => `
                 <div class="col-md-6 col-lg-3 mb-4">
-                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden">
+                    <div class="card h-100 shadow-sm border-0 rounded-4 overflow-hidden animate__animated animate__fadeInUp">
+                        <div class="position-relative" style="height: 180px; overflow: hidden;">
+                            <img src="${mod.image || defaultImages[index]}" class="w-100 h-100" style="object-fit: cover;" alt="${mod.title}">
+                        </div>
                         <div class="card-body p-4 text-center">
                             <h6 class="card-title fw-bold text-dark">${mod.title}</h6>
+                            ${mod.time ? `<span class="badge bg-primary-subtle text-primary mb-3">${mod.time}</span>` : ''}
                             <ul class="text-start small list-group list-group-flush mt-2">
-                                ${(mod.objectives || []).map(obj => `
-                                    <li class="list-group-item border-0 px-0 py-1 bg-transparent small">
+                                ${mod.objectives ? mod.objectives.map(obj => `
+                                    <li class="list-group-item border-0 px-0 py-1 bg-transparent">
                                         <i class="bi bi-dot text-primary fs-5"></i> ${obj}
                                     </li>
-                                `).join('')}
+                                `).join('') : ''}
                             </ul>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
+
 
         // 6. عرض بيانات التواصل (محدث برابط Gmail)
         const contactDiv = document.getElementById('contact-info');
@@ -154,3 +166,4 @@ async function loadProjectData() {
 
 // تشغيل الدالة عند تحميل الصفحة
 window.addEventListener('DOMContentLoaded', loadProjectData);
+
