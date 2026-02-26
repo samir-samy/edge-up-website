@@ -1,8 +1,3 @@
-/**
- * Project: Edge Up Consulting - Portfolio Loader
- * Logic: Fetch JSON data and inject it into the DOM using Template Literals
- */
-
 async function loadProjectData() {
     try {
         // 1. جلب البيانات من ملف الـ JSON
@@ -16,7 +11,7 @@ async function loadProjectData() {
         // 2. عرض قسم "من نحن" (Who We Are Section)
         const whoWeAreSection = document.getElementById('who-we-are-content');
         if (whoWeAreSection && data.aboutCompany) {
-            // تصحيح الجملة الإنجليزية
+           
             const correctedDescription = "In an era of constant change, the ultimate competitive advantage is to control behavior through our cognitive functions.";
 
             whoWeAreSection.innerHTML = `
@@ -181,11 +176,13 @@ async function loadProjectData() {
             contactDiv.innerHTML = `
                 <div class="d-flex flex-column gap-2">
                   
+const emailLink = `
 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${data.contact.email}" 
-    target="_blank" 
-    class="text-decoration-none text-white opacity-75">
+   target="_blank" 
+   class="text-decoration-none text-white opacity-75">
     <i class="bi bi-envelope-at-fill me-2"></i>${data.contact.email}
 </a>
+`;
                     <a href="https://wa.me/${data.contact.whatsapp.replace('+', '')}" target="_blank" class="text-decoration-none text-white opacity-75">
                         <i class="bi bi-whatsapp me-2"></i>${data.contact.whatsapp}
                     </a>
@@ -197,5 +194,6 @@ async function loadProjectData() {
         console.error("Critical Error Loading Edge Up Data:", error);
     }
 }
+
 
 window.addEventListener('DOMContentLoaded', loadProjectData);
