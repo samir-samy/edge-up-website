@@ -181,8 +181,7 @@ async function loadProjectData() {
             contactDiv.innerHTML = `
                 <div class="d-flex flex-column gap-2">
                   
-<a href="https://mail.google.com/mail/u/0/?view=cm&fs=1&to=${data.contact.email}" 
-   target="_blank" 
+<a href="mailto:${data.contact.email}" 
    class="text-decoration-none text-white opacity-75">
     <i class="bi bi-envelope-at-fill me-2"></i>${data.contact.email}
 </a>
@@ -199,5 +198,6 @@ async function loadProjectData() {
 }
 
 window.addEventListener('DOMContentLoaded', loadProjectData);
+
 
 
