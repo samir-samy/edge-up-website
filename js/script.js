@@ -175,23 +175,33 @@ async function loadProjectData() {
             `).join('');
         }
 
-        // 8. عرض بيانات التواصل
-        const contactDiv = document.getElementById('contact-info');
-        if (contactDiv && data.contact) {
-            contactDiv.innerHTML = `
-                <div class="d-flex flex-column gap-2">
-                  
-<a href="https://mail.google.com/mail/?view=cm&fs=1&to=${data.contact.email}" 
-    target="_blank" 
-    class="text-decoration-none text-white opacity-75">
-    <i class="bi bi-envelope-at-fill me-2"></i>${data.contact.email}
-</a>
-                    <a href="https://wa.me/${data.contact.whatsapp.replace('+', '')}" target="_blank" class="text-decoration-none text-white opacity-75">
-                        <i class="bi bi-whatsapp me-2"></i>${data.contact.whatsapp}
-                    </a>
-                </div>
-            `;
-        }
+ const contactDiv = document.getElementById('contact-info');
+
+if (contactDiv && data.contact) {
+    // تحديد الرابط بناءً على نوع الجهاز
+    const isMobile = /Android|iPhone|iPad/i.test(navigator.userAgent);
+    
+    // إذا كان موبايل نستخدم mailto لفتح التطبيق، وإذا كان لاب توب نستخدم رابط المتصفح
+    const emailHref = isMobile 
+        ? `mailto:${data.contact.email}` 
+        : `https://mail.google.com/mail/?view=cm&fs=1&to=${data.contact.email}`;
+
+    contactDiv.innerHTML = `
+        <div class="d-flex flex-column gap-2">
+            <a href="${emailHref}" 
+               target="_blank" 
+               class="text-decoration-none text-white opacity-75">
+                <i class="bi bi-envelope-at-fill me-2"></i>${data.contact.email}
+            </a>
+
+            <a href="https://wa.me/${data.contact.whatsapp.replace(/\D/g, '')}" 
+               target="_blank" 
+               class="text-decoration-none text-white opacity-75">
+                <i class="bi bi-whatsapp me-2"></i>${data.contact.whatsapp}
+            </a>
+        </div>
+    `;
+}
 
     } catch (error) {
         console.error("Critical Error Loading Edge Up Data:", error);
@@ -199,6 +209,7 @@ async function loadProjectData() {
 }
 
 window.addEventListener('DOMContentLoaded', loadProjectData);
+
 
 
 
