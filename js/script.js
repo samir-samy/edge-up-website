@@ -176,13 +176,11 @@ async function loadProjectData() {
             contactDiv.innerHTML = `
                 <div class="d-flex flex-column gap-2">
                   
-const emailLink = `
 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=${data.contact.email}" 
-   target="_blank" 
-   class="text-decoration-none text-white opacity-75">
+    target="_blank" 
+    class="text-decoration-none text-white opacity-75">
     <i class="bi bi-envelope-at-fill me-2"></i>${data.contact.email}
 </a>
-`;
                     <a href="https://wa.me/${data.contact.whatsapp.replace('+', '')}" target="_blank" class="text-decoration-none text-white opacity-75">
                         <i class="bi bi-whatsapp me-2"></i>${data.contact.whatsapp}
                     </a>
@@ -197,3 +195,4 @@ const emailLink = `
 
 
 window.addEventListener('DOMContentLoaded', loadProjectData);
+
