@@ -40,7 +40,13 @@ body {
     color: white;
     padding: 100px 0;
 }
-
+@media (max-width: 768px) {
+  .hero-section {
+    background-attachment: scroll;
+    min-height: 60vh;
+    background-position: center; 
+  }
+}
 .hero-section::before {
     content: "";
     position: absolute;
@@ -226,4 +232,5 @@ footer {
 #industries-container .col-md-4:hover p {
     color: var(--primary-blue) !important;
     font-weight: bold;
+
 }
