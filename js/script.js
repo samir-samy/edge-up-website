@@ -120,7 +120,7 @@ async function loadProjectData() {
         const programsContainer = document.getElementById('programs-container');
         if (programsContainer && data.training_modules) {
             const defaultImages = [
-                'assets/images/sales.jpg', 'assets/images/communication.jpg', 
+               'assets/images/coaching.jpg', 'assets/images/sales.jpg', 'assets/images/communication.jpg', 
                 'assets/images/leadership.jpg', 'assets/images/problem.jpg',
                 'assets/images/social.jpg', 'assets/images/time.jpg', 
                 'assets/images/emotional.jpg', 'assets/images/cbt.jpg', 
@@ -209,6 +209,7 @@ if (contactDiv && data.contact) {
 }
 
 window.addEventListener('DOMContentLoaded', loadProjectData);
+
 
 
 
