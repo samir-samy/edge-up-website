@@ -79,6 +79,17 @@
     "University students"
   ],
   "training_modules": [
+     {
+  "title": "Coaching through CBT principles",
+  "time": "Flexible / One-to-One",
+  "objectives": [
+    "Bridge the gap between performance and potential",
+    "Overcome deep-seated attitudes and behavioral resistance",
+    "Identify underlying motives and core beliefs",
+    "Reinforce long-term positive behavioral shifts",
+    "Improve professional and personal conduct"
+  ]
+},
     {
        "title": "Advanced Selling Skills",
 
@@ -237,3 +248,4 @@
   }
 
 }
+
