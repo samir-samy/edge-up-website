@@ -133,7 +133,27 @@ body {
     border: 3px solid var(--accent-teal);
     animation: floatVertical 3s ease-in-out infinite;
 }
+/* تنسيق حاوية الفيديو */
+.video-card {
+    border: 3px solid #f8f9fa; /* لون خفيف حول الفيديو */
+    transition: transform 0.3s ease;
+}
 
+.video-card:hover {
+    transform: scale(1.02); /* حركة بسيطة عند تمرير الماوس */
+}
+
+/* لضمان توافق أبعاد الـ Shorts (9:16) */
+.ratio-9x16 {
+    --bs-aspect-ratio: 177.77%; /* هذه النسبة تحافظ على الطول مقارنة بالعرض */
+}
+
+/* تكييف الفيديو مع الموبايل */
+@media (max-width: 768px) {
+    .col-md-6 {
+        padding: 0 30px; /* ترك مسافة جانبية في الشاشات الصغيرة */
+    }
+}
 @keyframes floatVertical {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
@@ -234,3 +254,4 @@ footer {
     font-weight: bold;
 
 }
+
