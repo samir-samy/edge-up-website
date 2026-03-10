@@ -138,7 +138,46 @@ body {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
 }
+.video-section-container {
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.vertical-video-card {
+    width: 100%;
+    max-width: 300px; /* العرض المثالي للـ Shorts */
+    border-radius: 30px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    border: 8px solid #fff;
+    transition: all 0.4s ease;
+}
+
+.vertical-video-card:hover {
+    transform: translateY(-10px); 
+    box-shadow: 0 30px 50px rgba(0,0,0,0.15);
+}
+
+.edgeup-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* تنسيق النص التعريفي */
+.video-info h3 {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.video-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
 /* 4. الكروت (Programs & CBT) */
 .card {
     border: none !important;
@@ -234,5 +273,6 @@ footer {
     font-weight: bold;
 
 }
+
 
 
