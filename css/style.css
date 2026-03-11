@@ -138,38 +138,46 @@ body {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
 }
-/* تنسيق الحاوية الرئيسية */
-.video-container {
+/* الحاوية الخارجية */
+.video-section-container {
     padding: 60px 20px;
     background-color: #f8f9fa;
     text-align: center;
 }
 
-
-.vertical-video-card {
+/* إطار الفيديو */
+.edgeup-video-frame {
     display: inline-block;
     width: 100%;
-   
-    max-height: 500px;
-    aspect-ratio: 9 / 16;
+    /* المقاس المثالي للكمبيوتر لكي لا يكون طويلاً جداً */
+    max-width: 320px; 
+    aspect-ratio: 9 / 16; /* أبعاد الـ Shorts */
     background-color: #000;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border: 6px solid #fff; /* إطار أبيض أنيق */
 }
 
-.vertical-video-card:hover {
-    transform: translateY(-5px);
-}
-
-
-.edgeup-video {
+/* الفيديو  */
+.edgeup-video-frame video {
     width: 100%;
-    height: 100%; 
-    object-fit: contain; 
+    height: 100%;
+    object-fit: cover; /* لملء الإطار تماماً بدون حواف سوداء */
 }
 
+
+@media (max-width: 576px) {
+    .edgeup-video-frame {
+        max-width: 95%; 
+        border-radius: 15px;
+        border-width: 4px;
+    }
+    
+    .video-section-container {
+        padding: 30px 10px;
+    }
+}
 /* النص أسفل الفيديو */
 .video-title {
     margin-top: 25px;
@@ -280,6 +288,7 @@ footer {
     font-weight: bold;
 
 }
+
 
 
 
