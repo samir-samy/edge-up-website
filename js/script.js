@@ -16,7 +16,6 @@ async function loadProjectData() {
         // 2. عرض قسم "من نحن" (Who We Are Section)
         const whoWeAreSection = document.getElementById('who-we-are-content');
         if (whoWeAreSection && data.aboutCompany) {
-            // تصحيح الجملة الإنجليزية
             const correctedDescription = "In an era of constant change, the ultimate competitive advantage is to control behavior through our cognitive functions.";
 
             whoWeAreSection.innerHTML = `
